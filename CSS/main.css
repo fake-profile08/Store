@@ -32,6 +32,10 @@ body {
     font-size: 25px;
 }
 
+.book_desc{
+    font-size: 22px;
+}
+
 .book_info {
     text-align: left;
     padding: 20px;

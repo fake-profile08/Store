@@ -27,4 +27,12 @@
         $result = mysqli_query($conn,$query);
         return $result;
     }
+    
+    function getBookByIsbn($conn,$isbn)
+    {
+        $query = "SELECT * FROM `books` WHERE `book_isbn` = '$isbn';";
+        $result = mysqli_query($conn,$query);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 ?>
