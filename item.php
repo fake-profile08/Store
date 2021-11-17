@@ -8,10 +8,6 @@ require_once "templates/header.php";
 $src = "../sources/images/" . $book['book_image'];
 ?>
 
-<head>
-    <link rel="stylesheet" href="../CSS/main.css">
-</head>
-
 <body>
     <div class="contains container my-4">
         <table>
