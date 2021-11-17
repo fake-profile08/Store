@@ -1,15 +1,51 @@
-body{
+body {
     background-image: url("https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
 }
-.db_error{
+
+.db_error {
     background-color: white;
     font-size: larger;
     text-align: center;
     padding: 30px;
     width: 1100px;
     margin: auto;
+}
+
+.contains {
+    background-color: rgb(255, 255, 255, 0.8);
+
+
+}
+
+.content {
+    text-align: center;
+    width: 900px;
+    margin: auto;
+
+}
+
+.book_title {
+    font-size: 25px;
+}
+
+.book_info {
+    text-align: left;
+    padding: 20px;
+}
+
+.book_image {
+    padding: 20px;
+}
+
+.secondary_data {
+    font-size: 14px;
+    color: gray;
+}
+
+.carousal_container{
+    margin: 0 200px;
 }

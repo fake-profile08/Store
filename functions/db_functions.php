@@ -14,5 +14,17 @@
         }
         return $conn;
     }
+    function latestBooks($conn)
+    {
+        $query = "SELECT * FROM `books` ORDER BY `date` DESC;";
+        $result = mysqli_query($conn,$query);
+        return $result;
+    }
 
+    function books($conn)
+    {
+        $query = "SELECT * FROM `books`;";
+        $result = mysqli_query($conn,$query);
+        return $result;
+    }
 ?>
