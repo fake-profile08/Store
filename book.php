@@ -33,7 +33,7 @@ $conn = db_connect();
                             </div>
                         </td>
                         <td>
-                            <dib class="book_info">
+                            <div class="book_info">
                                 <div class="book_title"><strong><?php echo $row['book_title']; ?></strong></div>
                                 <div class="secondary_data">
                                     by <?php echo $row['book_author']; ?> | <?php echo $row['date']; ?>
@@ -41,10 +41,10 @@ $conn = db_connect();
                                 <div class="secondary_data">
                                     FREE Delivery over ₹499. Fulfilled by Amazon
                                 </div>
-                                <a href="#">
+                                <a href="item.php/?book_isbn=<?php echo $row['book_isbn']; ?>">
                                     <div style="font-size: 25px;" class="badge bg-primary my-4">$ <?php echo $row['book_price']; ?></div>
                                 </a>
-                            </dib>
+                            </div>
                         </td>
                     </tr>
                 <?php } ?>
