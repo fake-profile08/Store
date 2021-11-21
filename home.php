@@ -4,7 +4,6 @@ $page = "home";
 require_once "templates/header.php";
 require_once "functions/db_functions.php";
 $conn = db_connect();
-$conn = db_connect();
 
 ?>
 

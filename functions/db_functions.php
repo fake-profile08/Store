@@ -18,6 +18,10 @@
     {
         $query = "SELECT * FROM `books` ORDER BY `date` DESC;";
         $result = mysqli_query($conn,$query);
+        if(!$result)
+        {
+            die($conn->error);
+        }
         return $result;
     }
 
@@ -25,6 +29,10 @@
     {
         $query = "SELECT * FROM `books`;";
         $result = mysqli_query($conn,$query);
+        if(!$result)
+        {
+            die($conn->error);
+        }
         return $result;
     }
     
