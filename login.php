@@ -5,7 +5,7 @@
     if($_SERVER['REQUEST_METHOD'] =="POST"){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        if($email =="" || $password = ""){
+        if($email =="" || $password == ""){
             die("Bitch you think I'm stupid");
 
         }
@@ -17,7 +17,8 @@
         }
         else
         {
-            header("Location:/php/Book_Store2.0/loginfail.php");
+            echo var_dump($ans);
+            // header("Location:/php/Book_Store2.0/loginfail.php");
         }
         
         

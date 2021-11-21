@@ -63,13 +63,14 @@
 
     function login($conn,$email,$pass){
         $query = "SELECT `password` FROM `customer_login` WHERE email = '$email'";
+        echo $email . "<br>". $pass . "<br>";
         $result = mysqli_query($conn,$query);
         $result = mysqli_fetch_assoc($result);
         if($result['password']==$pass)
         {
-            return true;
+            return 1;
         }
-        return false;
+        return 0;
     }
 
 ?>
