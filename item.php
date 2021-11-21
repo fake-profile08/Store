@@ -26,12 +26,14 @@ $src = "../sources/images/" . $book['book_image'];
                         <div class="book_desc">
                             Book Description:
                         </div>
-                        <div class = "my-4">
+                        <div class="my-4">
                             <?php echo $book['book_descr']; ?>
                         </div>
-                        <a href="#">
-                            <div style="font-size: 25px;" class="badge bg-primary my-4">$ <?php echo $book['book_price']; ?></div>
-                        </a>
+                        <form id = "item-add-from" action="/php/Book_Store2.0/add-item.php" method="post">
+                            <input type="hidden" name="book_isbn" value = "<?php echo $book['book_isbn']; ?>">
+                            <button id = "btn-item-add" style="font-size: 25px;" class="btn btn-primary" type="submit">$<?php echo $book['book_price']; ?></button>
+
+                        </form>
                     </div>
                 </td>
             </tr>

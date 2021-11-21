@@ -48,7 +48,7 @@ signup.addEventListener("click", () => {
 
 logout.addEventListener("click",()=>{
     document.getElementById("logout").submit();
-})
+});
 
 login.addEventListener("click",()=>{
     let email = document.getElementById("login-email");
@@ -70,4 +70,4 @@ login.addEventListener("click",()=>{
         document.getElementById("login_pass_error").innerHTML = "";
 
     document.getElementById("login").submit();
-})
+});
