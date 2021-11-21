@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    
- ?>
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,13 +67,23 @@
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
                 &nbsp;&nbsp;
-                <button <?php if(isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button <?php if (isset($_SESSION['email'])) {
+                            echo "style = 'display:none;'";
+                        } ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
                 &nbsp;&nbsp;
-                <button <?php if(isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SigUp</button>
-                <button <?php if(!isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger">Logout</button>
+                <button <?php if (isset($_SESSION['email'])) {
+                            echo "style = 'display:none;'";
+                        } ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SigUp</button>
+                <form action="/php/Book_Store2.0/logout.php" method="post" id = "logout">
+                    <button <?php if (!isset($_SESSION['email'])) {
+                                echo "style = 'display:none;'";
+                            } ?> type="button" class="btn btn-danger" id="btn-logout">Logout</button>
+                </form>
             </div>
         </div>
     </nav>
+
+    <!-- LoginModal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,15 +92,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form Action = "/php/Book_Store2.0/login.php" method="post">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp">
+                            <label  for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input name = "email" type="email" class="form-control" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="">
+                            <label  for="exampleInputPassword1" class="form-label">Password</label>
+                            <input name = "password" type="password" class="form-control" id="">
                         </div>
 
                         <button id="btn-login" type="submit" class="btn btn-primary">Login</button>
@@ -116,7 +126,7 @@
                         <div id="form_error" style="color:red;" class="form-text"></div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input id="email" name="email" type="email" class="form-control"  aria-describedby="email_error">
+                            <input id="email" name="email" type="email" class="form-control" aria-describedby="email_error">
                             <div id="email_error" style="color:red;" class="form-text"></div>
                         </div>
                         <div class="mb-3">
@@ -139,7 +149,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

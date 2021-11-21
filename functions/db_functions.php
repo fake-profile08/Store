@@ -60,3 +60,16 @@
         }
         
     }
+
+    function login($conn,$email,$pass){
+        $query = "SELECT `password` FROM `customer_login` WHERE email = '$email'";
+        $result = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($result);
+        if($result['password']==$pass)
+        {
+            return true;
+        }
+        return false;
+    }
+
+?>

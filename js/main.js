@@ -1,4 +1,5 @@
 const signup = document.getElementById("btn-signup");
+const logout = document.getElementById("btn-logout");
 
 signup.addEventListener("click", () => {
     let email = document.getElementById("email");
@@ -43,3 +44,7 @@ signup.addEventListener("click", () => {
     signup.type = "submit";
 
 });
+
+logout.addEventListener("click",()=>{
+    document.getElementById("logout").submit();
+})
