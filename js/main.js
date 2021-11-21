@@ -1,8 +1,7 @@
 const signup = document.getElementById("btn-signup");
 const logout = document.getElementById("btn-logout");
 const login = document.getElementById("btn-login");
-
-signup.addEventListener("click", () => {
+function fun() {
     let email = document.getElementById("email");
     let pass = document.getElementById("pass");
     let cpass = document.getElementById("cpass");
@@ -38,12 +37,17 @@ signup.addEventListener("click", () => {
 
     if (pass.value != cpass.value) {
         document.getElementById("form_error").innerHTML = "Passwords do not match";
+        return;
     }
     else {
         document.getElementById("form_error").innerHTML = "";
     }
     signup.type = "submit";
+}
 
+signup.addEventListener("click", function(){
+    
+    fun();
 });
 
 logout.addEventListener("click",()=>{
