@@ -43,4 +43,20 @@
         $row = mysqli_fetch_assoc($result);
         return $row;
     }
-?>
+
+    function signup($conn,$email,$name,$pass)
+    {
+        $query = "INSERT INTO `customers`(`email`,`name`) VALUES('$email', '$name');";
+        $result = mysqli_query($conn,$query);
+        if(!$result){
+            die("Error signing up: ". $conn->error);
+        }
+        
+        $query = "INSERT INTO `customer_login` VALUES('$email', '$pass');";
+        $result = mysqli_query($conn,$query);
+        if(!$result)
+        {
+            die("Error signing up: ". $conn->error);
+        }
+        
+    }

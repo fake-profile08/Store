@@ -1,8 +1,9 @@
 <?php
 $title = "Cool Books";
 $page = "home";
-require_once "templates/header.php";
+
 require_once "functions/db_functions.php";
+require_once "templates/header.php";
 $conn = db_connect();
 
 ?>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +30,7 @@
                          <?php
                             if ($page == "home")
                                 echo "active";
-                            ?>" aria-current="page" href="/php/Book_Store2.0/home.php">Home</a>
+                            ?>" aria-current="page" href="/php/Book_Store2.0/index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link 
@@ -37,9 +41,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="/php/Book_Store2.0/cart.php" class="nav-link <?php
-                                                            if ($page == "cart")
-                                                                echo "active";
-                                                            ?>">Cart</a>
+                                                                                if ($page == "cart")
+                                                                                    echo "active";
+                                                                                ?>">Cart</a>
                     </li>
 
                     <!-- <li class="nav-item dropdown">
@@ -63,9 +67,10 @@
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
                 &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button <?php if(isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
                 &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SigUp</button>
+                <button <?php if(isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SigUp</button>
+                <button <?php if(!isset($_SESSION['email'])){echo "style = 'display:none;'";} ?> type="button" class="btn btn-danger">Logout</button>
             </div>
         </div>
     </nav>
@@ -73,22 +78,22 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login to iCoder</h5>
+                    <h5 class="modal-title">Login to Cool Books</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="">
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Login</button>
+
+                        <button id="btn-login" type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -103,32 +108,41 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Get an iCoder Account</h5>
+                    <h5 class="modal-title" id="signupModalLabel">Get an Cool Books Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="/php/Book_Store2.0/signup.php">
+                        <div id="form_error" style="color:red;" class="form-text"></div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <input id="email" name="email" type="email" class="form-control"  aria-describedby="email_error">
+                            <div id="email_error" style="color:red;" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Name</label>
+                            <input id="name" name="name" type="text" class="form-control" aria-describedby="name_error">
+                            <div id="name_error" style="color:red;" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input name="password" type="password" class="form-control" id="pass">
+                            <div id="pass_error" style="color:red;" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="cpass">
+                            <div id="cpass_error" style="color:red;" class="form-text"></div>
                         </div>
-                       
-                        <button type="submit" class="btn btn-primary">Create Account</button>
+
+                        <button id="btn-signup" type="button" class="btn btn-primary">Create Account</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="/php/Book_Store2.0/js/main.js"></script>
