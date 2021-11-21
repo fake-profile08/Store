@@ -17,8 +17,7 @@
         }
         else
         {
-            echo var_dump($ans);
-            // header("Location:/php/Book_Store2.0/loginfail.php");
+            header("Location:/php/Book_Store2.0/loginfail.php");
         }
         
         

@@ -1,5 +1,6 @@
 const signup = document.getElementById("btn-signup");
 const logout = document.getElementById("btn-logout");
+const login = document.getElementById("btn-login");
 
 signup.addEventListener("click", () => {
     let email = document.getElementById("email");
@@ -47,4 +48,26 @@ signup.addEventListener("click", () => {
 
 logout.addEventListener("click",()=>{
     document.getElementById("logout").submit();
+})
+
+login.addEventListener("click",()=>{
+    let email = document.getElementById("login-email");
+    let pass = document.getElementById("login-password");
+    if (email.value == "") {
+        document.getElementById("login_email_error").innerHTML = "Email cannot be null";
+        return;
+    }
+    else {
+        document.getElementById("login_email_error").innerHTML = "";
+    }
+
+
+    if (pass.value == "") {
+        document.getElementById("login_pass_error").innerHTML = "This field cannot be null";
+        return;
+    }
+    else
+        document.getElementById("login_pass_error").innerHTML = "";
+
+    document.getElementById("login").submit();
 })

@@ -46,6 +46,14 @@
 
     function signup($conn,$email,$name,$pass)
     {
+        $query = "SELECT * FROM `customer_login` WHERE `email` = '$email';";
+        $result = mysqli_query($conn,$query);
+        $result = mysqli_fetch_assoc($result);
+        if($result['email'] ==$email)
+        {
+            die("Account already exits try logging in");
+        }
+
         $query = "INSERT INTO `customers`(`email`,`name`) VALUES('$email', '$name');";
         $result = mysqli_query($conn,$query);
         if(!$result){
@@ -63,7 +71,7 @@
 
     function login($conn,$email,$pass){
         $query = "SELECT `password` FROM `customer_login` WHERE email = '$email'";
-        echo $email . "<br>". $pass . "<br>";
+        // echo $email . "<br>". $pass . "<br>";
         $result = mysqli_query($conn,$query);
         $result = mysqli_fetch_assoc($result);
         if($result['password']==$pass)

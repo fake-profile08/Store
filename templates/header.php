@@ -92,18 +92,19 @@ session_start();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form Action = "/php/Book_Store2.0/login.php" method="post">
+                    <form id = "login" Action = "/php/Book_Store2.0/login.php" method="post">
                         <div class="mb-3">
                             <label  for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input name = "email" type="email" class="form-control" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <input id = "login-email" name = "email" type="email" class="form-control" aria-describedby="emailHelp">
+                            <div id="login_email_error" style="color:red;" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label  for="exampleInputPassword1" class="form-label">Password</label>
-                            <input name = "password" type="password" class="form-control" id="">
+                            <input name = "password" type="password" class="form-control" id="login-password">
+                            <div id="login_pass_error" style="color:red;" class="form-text"></div>
                         </div>
 
-                        <button id="btn-login" type="submit" class="btn btn-primary">Login</button>
+                        <button id="btn-login" type="button" class="btn btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="modal-footer">
