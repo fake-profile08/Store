@@ -39,7 +39,12 @@ session_start();
                             echo "active";
                         ?>" href="/php/Book_Store2.0/book.php">Books</a>
                     </li>
-                    <li class="nav-item">
+                    <li <?php
+                    session_start();
+                    if(!isset($_SESSION['email'])){
+                        echo "style = 'display:none;'";
+                    }
+                     ?> class="nav-item">
                         <a href="/php/Book_Store2.0/cart.php" class="nav-link <?php
                                                                                 if ($page == "cart")
                                                                                     echo "active";

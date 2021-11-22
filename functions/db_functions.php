@@ -133,4 +133,15 @@
 
     }
 
+    function admin_login($conn,$username,$password){
+        $query = "SELECT * FROM `admin` WHERE `username` = '$username';";
+        $result = mysqli_query($conn,$query);
+        $result = mysqli_fetch_array($result);
+        if($password == $result['password'])
+        {
+            return 1;
+        }
+        return 0;
+    }
+
 ?>

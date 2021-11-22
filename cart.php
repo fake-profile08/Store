@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['email'])){
+    header('Location:'. $_SERVER['HTTP_REFERER']);
+}
 require_once "/home/yuvraj/Codes/php/Book_Store2.0/functions/db_functions.php";
 require_once "/home/yuvraj/Codes/php/Book_Store2.0/functions/cart_functions.php";
 $title = "Cart";
