@@ -1,18 +1,18 @@
 <?php
-session_start();
-if(!isset($_SESSION['email'])){
-    header('Location:'. $_SERVER['HTTP_REFERER']);
-}
-require_once "/home/yuvraj/Codes/php/Book_Store2.0/functions/db_functions.php";
-require_once "/home/yuvraj/Codes/php/Book_Store2.0/functions/cart_functions.php";
+
+require_once $_SERVER['DOCUMENT_ROOT']."/php/Store/functions/db_functions.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/php/Store/functions/cart_functions.php";
 $title = "Cart";
 $page = "cart";
 require_once "templates/header.php";
+if(!isset($_SESSION['email'])){
+    header('Location:'. $_SERVER['HTTP_REFERER']);
+}
 $conn = db_connect();
 $result = getCartData($conn,$_SESSION['email']);
 ?>
 <head>
-    <link rel="stylesheet" href="/php/Book_Store2.0/CSS/cart.css">
+    <link rel="stylesheet" href="/php/Store/CSS/cart.css">
 </head>
 <body>
     <div class="content">

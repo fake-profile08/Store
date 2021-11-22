@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/php/Book_Store2.0/CSS/main.css">
+    <link rel="stylesheet" href="/php/Store/CSS/main.css">
 
 </head>
 
@@ -30,22 +30,21 @@ session_start();
                          <?php
                             if ($page == "home")
                                 echo "active";
-                            ?>" aria-current="page" href="/php/Book_Store2.0/index.php">Home</a>
+                            ?>" aria-current="page" href="/php/Store/index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link 
                         <?php
                         if ($page == "book")
                             echo "active";
-                        ?>" href="/php/Book_Store2.0/book.php">Books</a>
+                        ?>" href="/php/Store/book.php">Books</a>
                     </li>
                     <li <?php
-                    session_start();
                     if(!isset($_SESSION['email'])){
                         echo "style = 'display:none;'";
                     }
                      ?> class="nav-item">
-                        <a href="/php/Book_Store2.0/cart.php" class="nav-link <?php
+                        <a href="/php/Store/cart.php" class="nav-link <?php
                                                                                 if ($page == "cart")
                                                                                     echo "active";
                                                                                 ?>">Cart</a>
@@ -79,7 +78,7 @@ session_start();
                 <button <?php if (isset($_SESSION['email'])) {
                             echo "style = 'display:none;'";
                         } ?> type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SigUp</button>
-                <form action="/php/Book_Store2.0/logout.php" method="post" id = "logout">
+                <form action="/php/Store/logout.php" method="post" id = "logout">
                     <button <?php if (!isset($_SESSION['email'])) {
                                 echo "style = 'display:none;'";
                             } ?> type="button" class="btn btn-danger" id="btn-logout">Logout</button>
@@ -97,7 +96,7 @@ session_start();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id = "login" Action = "/php/Book_Store2.0/login.php" method="post">
+                    <form id = "login" Action = "/php/Store/login.php" method="post">
                         <div class="mb-3">
                             <label  for="exampleInputEmail1" class="form-label">Email address</label>
                             <input id = "login-email" name = "email" type="email" class="form-control" aria-describedby="emailHelp">
@@ -128,7 +127,7 @@ session_start();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="/php/Book_Store2.0/signup.php">
+                    <form method="post" action="/php/Store/signup.php">
                         <div id="form_error" style="color:red;" class="form-text"></div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>

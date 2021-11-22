@@ -2,8 +2,8 @@
 $title = "Cool Books";
 $page = "home";
 
-require_once "functions/db_functions.php";
-require_once "templates/header.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/php/Store/functions/db_functions.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/php/Store/templates/header.php";
 $conn = db_connect();
 
 ?>

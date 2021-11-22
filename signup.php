@@ -1,6 +1,6 @@
 <?php
 
-    require_once("/home/yuvraj/Codes/php/Book_Store2.0/functions/db_functions.php");
+    require_once $_SERVER['DOCUMENT_ROOT']."/php/Store/functions/db_functions.php";
     $conn = db_connect();
     if($_SERVER['REQUEST_METHOD'] =="POST"){
         $email = $_POST['email'];
